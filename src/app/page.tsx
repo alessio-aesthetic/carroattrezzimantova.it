@@ -15,7 +15,7 @@ function PhoneLink({
   return (
     <Link
       href={`tel:${site.tel}`}
-      className={`inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/15 transition hover:bg-slate-800 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-[#0B3A75] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/20 transition hover:bg-[#082D5A] ${className}`}
     >
       {children}
     </Link>
@@ -26,7 +26,7 @@ function WhatsAppLink({ className = '' }: { className?: string }) {
   return (
     <Link
       href={whatsappUrl}
-      className={`inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-emerald-500 hover:text-emerald-700 ${className}`}
+      className={`inline-flex items-center justify-center rounded-full border border-[#F1C40F]/70 bg-[#F1C40F] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#FFD84A] ${className}`}
     >
       WhatsApp
     </Link>
@@ -35,118 +35,103 @@ function WhatsAppLink({ className = '' }: { className?: string }) {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
       <Container className="flex min-h-20 items-center justify-between gap-6">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-lg font-black text-white">
-            CM
-          </span>
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-bold tracking-tight text-slate-950">
-              Carroattrezzi Mantova
-            </span>
-            <span className="block text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-              soccorso stradale
-            </span>
-          </span>
+        <Link href="/" className="flex min-w-0 items-center">
+          <img
+            src="/images/logo-mantova.png"
+            alt="Carroattrezzi Mantova"
+            className="h-14 w-auto max-w-[210px] object-contain sm:h-16 sm:max-w-[260px]"
+          />
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-700 lg:flex">
-          <a href="#servizi" className="hover:text-slate-950">
+          <a href="#servizi" className="hover:text-[#0B3A75]">
             Servizi
           </a>
-          <a href="#zone" className="hover:text-slate-950">
+          <a href="#zone" className="hover:text-[#0B3A75]">
             Zone
           </a>
-          <a href="#prezzi" className="hover:text-slate-950">
+          <a href="#prezzi" className="hover:text-[#0B3A75]">
             Prezzi
           </a>
-          <a href="#faq" className="hover:text-slate-950">
-            FAQ
+          <a href="#faq" className="hover:text-[#0B3A75]">
+            Domande
           </a>
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
           <WhatsAppLink className="py-2.5" />
           <PhoneLink className="py-2.5" />
         </div>
-        <PhoneLink className="lg:hidden">Chiama</PhoneLink>
+        <PhoneLink className="px-5 lg:hidden">Chiama</PhoneLink>
       </Container>
     </header>
   )
 }
 
-function LogoMark() {
+function HeroVisual() {
   return (
-    <div className="relative h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-slate-950/30 lg:h-[520px]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.22),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(14,165,233,0.22),transparent_26%),linear-gradient(135deg,#020617,#0f172a_55%,#111827)]" />
-      <div className="absolute inset-x-10 bottom-16 h-28 skew-y-[-10deg] rounded-full bg-white/10 blur-3xl" />
-      <div className="absolute left-10 top-10 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/90">
-        Centrale operativa 24H
-      </div>
-      <div className="absolute inset-x-8 bottom-8">
-        <div className="rounded-[1.5rem] border border-white/10 bg-white/10 p-5 backdrop-blur">
-          <div className="flex items-center justify-between gap-5">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                Mantova e provincia
-              </p>
-              <p className="mt-2 font-display text-3xl font-bold text-white">
-                Traino, recupero, assistenza.
-              </p>
-            </div>
-            <div className="hidden h-20 w-20 items-center justify-center rounded-2xl bg-emerald-400 text-3xl font-black text-slate-950 sm:flex">
-              24
-            </div>
+    <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white via-blue-50 to-amber-50 p-6 shadow-2xl shadow-blue-950/10">
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B3A75]/10 to-transparent" />
+      <img
+        src="/images/logo-mantova.png"
+        alt="Logo Carroattrezzi Mantova con carro attrezzi giallo e blu"
+        className="relative mx-auto w-full max-w-[680px] object-contain"
+      />
+      <div className="relative mt-6 grid gap-3 sm:grid-cols-3">
+        {[
+          ['24H', 'supporto continuo'],
+          ['MN', 'zona Mantova'],
+          ['12', 'servizi dedicati'],
+        ].map(([value, label]) => (
+          <div
+            key={label}
+            className="rounded-2xl border border-white bg-white/80 p-4 shadow-sm"
+          >
+            <p className="font-display text-3xl font-bold text-[#0B3A75]">
+              {value}
+            </p>
+            <p className="mt-1 text-sm font-medium text-slate-700">{label}</p>
           </div>
-        </div>
+        ))}
       </div>
-      <div className="absolute left-14 top-32 h-28 w-28 rounded-3xl border border-white/15 bg-white/10" />
-      <div className="absolute right-12 top-32 h-40 w-56 rounded-[2rem] border border-white/15 bg-white/10" />
-      <div className="absolute left-24 top-52 h-20 w-72 rounded-full border border-emerald-300/30 bg-emerald-300/10" />
-      <div className="absolute right-20 top-64 h-3 w-48 rounded-full bg-white/30" />
-      <div className="absolute right-28 top-72 h-3 w-36 rounded-full bg-emerald-300/70" />
     </div>
   )
 }
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-50">
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,white,transparent_30%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_35%)]" />
-      <Container className="relative grid gap-12 pb-20 pt-16 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:pb-28 lg:pt-24">
+    <section className="relative overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(241,196,15,0.18),transparent_32%),radial-gradient(circle_at_top_right,rgba(11,58,117,0.14),transparent_34%)]" />
+      <Container className="relative grid gap-12 pb-20 pt-14 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:pb-28 lg:pt-24">
         <div>
-          <p className="mb-5 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-800">
-            Pronto intervento locale per auto ferme, incidenti e guasti
+          <p className="mb-5 inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#0B3A75]">
+            Soccorso stradale, traino e recupero veicoli
           </p>
           <h1 className="font-display text-5xl font-bold tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
             Carroattrezzi a Mantova
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-            Quando il veicolo si ferma, serve una risposta concreta: una
-            chiamata chiara, un mezzo adatto e una destinazione concordata
-            senza perdere tempo. Gestiamo soccorso stradale, traino auto,
-            recupero dopo incidente e trasporto veicoli a Mantova con un
-            approccio ordinato, rapido e professionale.
-          </p>
+          <div className="mt-7 max-w-2xl space-y-5 text-lg leading-8 text-slate-700">
+            <p>
+              Quando un’auto si ferma, non serve una promessa generica: serve
+              una persona che risponda, capisca il problema e organizzi il
+              recupero con metodo. Il nostro servizio di <strong>carroattrezzi a Mantova</strong> nasce
+              per dare una soluzione concreta a chi si trova con un mezzo fermo,
+              danneggiato o impossibile da spostare.
+            </p>
+            <p>
+              Gestiamo <strong>soccorso stradale</strong>, traino auto, recupero dopo incidente,
+              assistenza per moto e furgoni leggeri. Prima di partire
+              concordiamo posizione, destinazione e condizioni del veicolo,
+              così sai cosa succede e puoi decidere con calma anche in una
+              situazione urgente.
+            </p>
+          </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <PhoneLink />
             <WhatsAppLink />
           </div>
-          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-slate-200 pt-8">
-            {[
-              ['24H', 'urgenze'],
-              ['12', 'servizi'],
-              ['MN', 'zona locale'],
-            ].map(([value, label]) => (
-              <div key={label}>
-                <dt className="text-sm text-slate-500">{label}</dt>
-                <dd className="mt-1 font-display text-3xl font-bold text-slate-950">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </div>
-        <LogoMark />
+        <HeroVisual />
       </Container>
     </section>
   )
@@ -155,51 +140,58 @@ function Hero() {
 function SectionHeading({
   eyebrow,
   title,
-  text,
+  children,
 }: {
   eyebrow: string
   title: string
-  text: string
+  children: React.ReactNode
 }) {
   return (
     <div className="max-w-3xl">
-      <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-700">
+      <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#0B3A75]">
         {eyebrow}
       </p>
       <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
         {title}
       </h2>
-      <p className="mt-5 text-lg leading-8 text-slate-700">{text}</p>
+      <div className="mt-5 space-y-4 text-lg leading-8 text-slate-700">
+        {children}
+      </div>
     </div>
   )
 }
 
 function Urgencies() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-slate-50 py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
-          <SectionHeading
-            eyebrow="urgenze"
-            title="Prima la sicurezza, poi il recupero."
-            text="Un buon intervento non parte dal carroattrezzi, parte dalle informazioni giuste. Dove si trova il mezzo? È in una posizione pericolosa? Può essere spostato o va caricato? Da queste risposte dipende la soluzione migliore."
-          />
+          <SectionHeading eyebrow="urgenze" title="Prima la sicurezza, poi il recupero.">
+            <p>
+              Un intervento fatto bene comincia dalla telefonata. Ti chiediamo
+              dove si trova il veicolo, se ci sono persone in sicurezza, se il
+              mezzo blocca il traffico e dove vuoi portarlo. Queste informazioni
+              permettono di scegliere la procedura più adatta.
+            </p>
+            <p>
+              Il risultato è un servizio più ordinato: meno dubbi, meno attese
+              inutili e una gestione più chiara dal primo contatto fino alla
+              consegna del mezzo.
+            </p>
+          </SectionHeading>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              'Auto ferma in strada o parcheggio',
-              'Guasto improvviso e veicolo non marciante',
-              'Incidente con mezzo da recuperare',
-              'Batteria scarica o avviamento impossibile',
-            ].map((item) => (
+              ['Auto ferma in strada', 'Recupero del veicolo quando non può proseguire in sicurezza.'],
+              ['Guasto improvviso', 'Supporto per problemi meccanici, elettrici o avviamento mancato.'],
+              ['Incidente o urto', 'Carico del mezzo danneggiato e trasporto verso la destinazione scelta.'],
+              ['Parcheggi e cortili', 'Valutazione degli accessi quando il veicolo è bloccato in spazi stretti.'],
+            ].map(([title, text]) => (
               <div
-                key={item}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-6"
+                key={title}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <p className="font-semibold text-slate-950">{item}</p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Ti guidiamo al telefono e organizziamo il recupero con tempi,
-                  destinazione e modalità comprensibili.
-                </p>
+                <p className="font-semibold text-slate-950">{title}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-700">{text}</p>
               </div>
             ))}
           </div>
@@ -211,31 +203,39 @@ function Urgencies() {
 
 function Services() {
   return (
-    <section id="servizi" className="bg-slate-950 py-24 text-white">
+    <section id="servizi" className="bg-white py-24">
       <Container>
-        <SectionHeading
-          eyebrow="servizi"
-          title="Dodici servizi, una gestione precisa."
-          text="Ogni richiesta viene valutata in base a mezzo, posizione e destinazione. Così il servizio è coerente con il problema reale, non una risposta generica."
-        />
+        <SectionHeading eyebrow="servizi" title="Servizi pensati per problemi reali.">
+          <p>
+            Ogni fermo ha una storia diversa: un’auto in panne davanti casa, un
+            furgone bloccato durante il lavoro, una moto da recuperare con cura
+            o un veicolo da portare fuori provincia. Per questo non trattiamo
+            ogni richiesta nello stesso modo.
+          </p>
+          <p>
+            Valutiamo mezzo, posizione, accessi e destinazione. Poi organizziamo
+            il servizio più corretto, con comunicazione chiara e tempi
+            comprensibili.
+          </p>
+        </SectionHeading>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Link
               key={service.slug}
               href={`/servizi/${service.slug}/`}
-              className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:bg-white/[0.07]"
+              className="group rounded-3xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-[#0B3A75]/30 hover:bg-white hover:shadow-xl hover:shadow-blue-950/10"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400 text-sm font-black text-slate-950">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F1C40F] text-sm font-black text-slate-950">
                 {String(index + 1).padStart(2, '0')}
               </div>
-              <h3 className="mt-5 font-display text-xl font-bold">
+              <h3 className="mt-5 font-display text-xl font-bold text-slate-950">
                 {service.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
+              <p className="mt-3 text-sm leading-6 text-slate-700">
                 {service.text}
               </p>
-              <span className="mt-5 inline-flex text-sm font-semibold text-emerald-300">
-                Apri servizio
+              <span className="mt-5 inline-flex text-sm font-semibold text-[#0B3A75]">
+                Scopri il servizio
               </span>
             </Link>
           ))}
@@ -247,14 +247,22 @@ function Services() {
 
 function Zones() {
   return (
-    <section id="zone" className="bg-white py-24">
+    <section id="zone" className="bg-gradient-to-b from-blue-50 to-white py-24">
       <Container>
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <SectionHeading
-            eyebrow="zone servite"
-            title="Mantova e comuni vicini, con link locali pronti."
-            text="Le pagine città sono predisposte per lavorare sul territorio: ogni link è già strutturato per una futura pagina dedicata, utile per richieste locali e copertura SEO."
-          />
+          <SectionHeading eyebrow="zone servite" title="Mantova e provincia, con interventi organizzati.">
+            <p>
+              Operiamo su Mantova e nei comuni vicini con un approccio pratico:
+              posizione precisa, informazioni essenziali e destinazione
+              concordata prima del recupero. È il modo migliore per ridurre
+              incertezze quando il veicolo è fermo.
+            </p>
+            <p>
+              Che tu sia in centro, in una zona industriale, lungo una strada
+              provinciale o in un parcheggio privato, ti aiutiamo a capire il
+              passaggio successivo e a portare il mezzo dove serve.
+            </p>
+          </SectionHeading>
           <PhoneLink />
         </div>
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -262,7 +270,7 @@ function Zones() {
             <Link
               key={zone.slug}
               href={`/zone/${zone.slug}/`}
-              className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:border-emerald-300 hover:bg-emerald-50"
+              className="rounded-2xl border border-slate-200 bg-white px-5 py-4 font-semibold text-slate-800 shadow-sm transition hover:border-[#0B3A75]/30 hover:text-[#0B3A75]"
             >
               {zone.title}
             </Link>
@@ -282,36 +290,44 @@ function WhyProcessPricing() {
             <h2 className="font-display text-3xl font-bold text-slate-950">
               Perché scegliere noi
             </h2>
-            <ul className="mt-6 space-y-4 text-sm leading-6 text-slate-700">
-              <li>Comunicazione chiara prima dell’intervento.</li>
-              <li>Destinazione concordata: officina, deposito o indirizzo.</li>
-              <li>Gestione ordinata per auto, moto e furgoni leggeri.</li>
-              <li>Approccio locale su Mantova e comuni vicini.</li>
-            </ul>
+            <div className="mt-6 space-y-4 text-sm leading-6 text-slate-700">
+              <p>
+                <strong>Rispondiamo in modo diretto</strong>, senza frasi vaghe
+                e senza scaricare il problema su chi è già in difficoltà.
+              </p>
+              <p>
+                <strong>Concordiamo la destinazione</strong>: officina,
+                carrozzeria, deposito o indirizzo indicato.
+              </p>
+              <p>
+                <strong>Valutiamo il mezzo prima di partire</strong>, così il
+                recupero viene preparato con più precisione.
+              </p>
+            </div>
           </div>
-          <div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-sm">
+          <div className="rounded-[2rem] bg-[#0B3A75] p-8 text-white shadow-sm">
             <h2 className="font-display text-3xl font-bold">
               Processo in 3 step
             </h2>
             <ol className="mt-6 space-y-5">
               {[
-                ['Chiamata', 'Raccogliamo posizione, problema e veicolo.'],
-                ['Valutazione', 'Definiamo soluzione, destinazione e priorità.'],
-                ['Recupero', 'Carichiamo o assistiamo il mezzo con metodo.'],
+                ['Chiamata', 'Raccogliamo posizione, problema e tipo di veicolo.'],
+                ['Valutazione', 'Definiamo recupero, destinazione e priorità.'],
+                ['Intervento', 'Carichiamo o assistiamo il mezzo con metodo.'],
               ].map(([title, text], index) => (
                 <li key={title} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-sm font-black text-slate-950">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F1C40F] text-sm font-black text-slate-950">
                     {index + 1}
                   </span>
                   <span>
-                    <strong className="block">{title}</strong>
-                    <span className="text-sm text-slate-300">{text}</span>
+                    <strong className="block text-white">{title}</strong>
+                    <span className="text-sm text-blue-50">{text}</span>
                   </span>
                 </li>
               ))}
             </ol>
           </div>
-          <div className="rounded-[2rem] border border-emerald-200 bg-emerald-50 p-8">
+          <div className="rounded-[2rem] border border-amber-200 bg-amber-50 p-8">
             <h2 className="font-display text-3xl font-bold text-slate-950">
               Prezzi chiari
             </h2>
@@ -320,6 +336,11 @@ function WhyProcessPricing() {
               del recupero e destinazione. Prima di partire chiediamo i dettagli
               utili per darti un’indicazione trasparente e ridurre al minimo le
               sorprese.
+            </p>
+            <p className="mt-4 text-sm leading-6 text-slate-700">
+              Se il mezzo è in un punto difficile, in un parcheggio stretto o in
+              una zona trafficata, lo valutiamo subito: un preventivo serio nasce
+              da informazioni corrette.
             </p>
             <PhoneLink className="mt-7" />
           </div>
@@ -333,11 +354,13 @@ function Faqs() {
   return (
     <section id="faq" className="bg-white py-24">
       <Container>
-        <SectionHeading
-          eyebrow="faq"
-          title="Domande frequenti sul carroattrezzi a Mantova"
-          text="Risposte dirette alle domande che contano quando il mezzo è fermo e devi decidere in fretta."
-        />
+        <SectionHeading eyebrow="domande frequenti" title="Risposte chiare prima di decidere.">
+          <p>
+            In un momento di urgenza servono indicazioni semplici. Qui trovi le
+            domande che riceviamo più spesso da chi ha bisogno di un
+            carroattrezzi a Mantova o nei comuni vicini.
+          </p>
+        </SectionHeading>
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           {faqs.map((faq) => (
             <div
@@ -360,28 +383,24 @@ function Faqs() {
 
 function FinalCta() {
   return (
-    <section className="bg-slate-950 py-20 text-white">
+    <section className="bg-[#0B3A75] py-20 text-white">
       <Container className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#F1C40F]">
             intervento rapido
           </p>
           <h2 className="mt-4 font-display text-4xl font-bold">
             Veicolo fermo a Mantova?
           </h2>
-          <p className="mt-4 max-w-2xl text-slate-300">
+          <p className="mt-4 max-w-2xl text-blue-50">
             Chiama ora e comunica posizione, tipo di mezzo e destinazione:
-            organizziamo il recupero con una procedura chiara.
+            organizziamo il recupero con una procedura chiara, senza farti
+            perdere tempo con spiegazioni inutili.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <PhoneLink className="bg-emerald-400 text-slate-950 hover:bg-emerald-300" />
-          <Link
-            href={whatsappUrl}
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
-          >
-            WhatsApp
-          </Link>
+          <PhoneLink className="bg-white text-[#0B3A75] hover:bg-blue-50" />
+          <WhatsAppLink />
         </div>
       </Container>
     </section>
@@ -394,10 +413,12 @@ function Footer() {
       <Container>
         <div className="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-4">
           <div>
-            <p className="font-display text-xl font-bold text-slate-950">
-              {site.name}
-            </p>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <img
+              src="/images/logo-mantova.png"
+              alt="Carroattrezzi Mantova"
+              className="h-16 w-auto object-contain"
+            />
+            <p className="mt-4 text-sm leading-6 text-slate-600">
               Soccorso stradale, traino auto e recupero veicoli a Mantova e
               provincia.
             </p>
