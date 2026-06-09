@@ -73,12 +73,19 @@ export default function ZonePage({ params }: { params: { slug: string } }) {
               </Link>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-blue-950/10">
+          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-blue-950/10">
             <img
-              src="/images/logo-mantova.png"
-              alt={`Logo Carroattrezzi Mantova per interventi a ${zone.name}`}
-              className="mx-auto w-full object-contain"
+              src={`/images/zones/${zone.slug}.webp`}
+              alt={`Carroattrezzi a ${zone.name} in zona locale`}
+              className="h-[360px] w-full object-cover"
             />
+            <div className="p-5">
+              <img
+                src="/images/logo-mantova.png"
+                alt="Carroattrezzi Mantova"
+                className="mx-auto h-16 w-auto object-contain"
+              />
+            </div>
           </div>
         </Container>
       </section>

@@ -73,11 +73,18 @@ function HeroVisual() {
     <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white via-blue-50 to-amber-50 p-6 shadow-2xl shadow-blue-950/10">
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B3A75]/10 to-transparent" />
       <img
+        src="/images/hero-technician-towtruck.png"
+        alt="Tecnico del soccorso stradale con carroattrezzi"
+        className="relative z-10 mx-auto mt-2 w-full max-w-[760px] object-contain"
+      />
+      <div className="relative z-20 -mt-10 rounded-3xl border border-white/80 bg-white/85 p-4 shadow-xl shadow-blue-950/10 backdrop-blur">
+        <img
         src="/images/logo-mantova.png"
         alt="Logo Carroattrezzi Mantova con carro attrezzi giallo e blu"
-        className="relative mx-auto w-full max-w-[680px] object-contain"
-      />
-      <div className="relative mt-6 grid gap-3 sm:grid-cols-3">
+          className="mx-auto w-full max-w-[440px] object-contain"
+        />
+      </div>
+      <div className="relative z-20 mt-6 grid gap-3 sm:grid-cols-3">
         {[
           ['24H', 'supporto continuo'],
           ['MN', 'zona Mantova'],
@@ -225,6 +232,13 @@ function Services() {
               href={`/servizi/${service.slug}/`}
               className="group rounded-3xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-[#0B3A75]/30 hover:bg-white hover:shadow-xl hover:shadow-blue-950/10"
             >
+              <div className="-mx-2 -mt-2 mb-5 overflow-hidden rounded-2xl">
+                <img
+                  src={`/images/services/${service.slug}.webp`}
+                  alt={`${service.title} a Mantova`}
+                  className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F1C40F] text-sm font-black text-slate-950">
                 {String(index + 1).padStart(2, '0')}
               </div>
@@ -270,9 +284,14 @@ function Zones() {
             <Link
               key={zone.slug}
               href={`/zone/${zone.slug}/`}
-              className="rounded-2xl border border-slate-200 bg-white px-5 py-4 font-semibold text-slate-800 shadow-sm transition hover:border-[#0B3A75]/30 hover:text-[#0B3A75]"
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white font-semibold text-slate-800 shadow-sm transition hover:border-[#0B3A75]/30 hover:text-[#0B3A75]"
             >
-              {zone.title}
+              <img
+                src={`/images/zones/${zone.slug}.webp`}
+                alt={`${zone.title} - soccorso stradale locale`}
+                className="h-36 w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <span className="block px-5 py-4">{zone.title}</span>
             </Link>
           ))}
         </div>
@@ -399,8 +418,18 @@ function FinalCta() {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <PhoneLink className="bg-white text-[#0B3A75] hover:bg-blue-50" />
-          <WhatsAppLink />
+          <Link
+            href={`tel:${site.tel}`}
+            className="inline-flex items-center justify-center rounded-full bg-[#F1C40F] px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-black/15 transition hover:bg-[#FFD84A]"
+          >
+            Chiama {site.phone}
+          </Link>
+          <Link
+            href={whatsappUrl}
+            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white px-6 py-3 text-sm font-semibold text-[#0B3A75] transition hover:bg-blue-50"
+          >
+            WhatsApp
+          </Link>
         </div>
       </Container>
     </section>
