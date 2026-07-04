@@ -6,7 +6,7 @@ export const site = {
   tel: '+3903761991615',
   whatsapp: '3903761991615',
   email: 'assistenza@carroattrezzimantova.it',
-  address: 'Mantova MN',
+  address: 'Circonvallazione Sud, 8/G, 46100 Mantova MN',
   title: 'Carroattrezzi a Mantova 24H',
   description:
     'Carroattrezzi a Mantova per soccorso stradale, traino auto, moto e furgoni. Intervento rapido, prezzi chiari e assistenza 24 ore.',

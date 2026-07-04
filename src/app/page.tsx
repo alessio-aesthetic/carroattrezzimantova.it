@@ -506,6 +506,8 @@ function JsonLd() {
       email: site.email,
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Circonvallazione Sud, 8/G',
+        postalCode: '46100',
         addressLocality: site.city,
         addressRegion: 'MN',
         addressCountry: 'IT',
