@@ -128,6 +128,34 @@ function Process() {
   )
 }
 
+function FieldSupport() {
+  return (
+    <section className="bg-[#f7f8f6] py-20 sm:py-28">
+      <Container>
+        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#e65c2f]">Sul posto</p>
+            <h2 className="mt-4 max-w-md text-4xl font-black tracking-[-0.04em] text-[#12233f] sm:text-5xl">Ogni recupero richiede attenzione ai dettagli.</h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-slate-700">Un’auto incidentata, una moto da fissare, un furgone fermo durante una consegna: il mezzo e il contesto cambiano ogni volta. Per questo prepariamo l’intervento considerando accessi, sicurezza, dimensioni e destinazione, con immagini reali del lavoro su strada.</p>
+        </div>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {[
+            ['/images/mechanic.jpg', 'Valutazione del veicolo', 'Prima di intervenire, raccogliamo le informazioni che servono per scegliere il recupero più adatto.'],
+            ['/images/road-car.jpg', 'Assistenza lungo il percorso', 'Strade urbane, provinciali e collegamenti della provincia: la posizione precisa rende tutto più semplice.'],
+            ['/images/tow-detail.jpg', 'Movimentazione curata', 'Il carico e il trasporto vengono organizzati con attenzione alle condizioni del mezzo.'],
+          ].map(([src, title, text]) => (
+            <article key={title} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <Image src={src} alt={title} width={1600} height={1067} className="h-56 w-full object-cover" />
+              <div className="p-6"><h3 className="text-lg font-extrabold text-[#12233f]">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{text}</p></div>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
 function Zones() {
   return <section id="zone" className="bg-white py-20 sm:py-28"><Container><div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"><div><p className="text-xs font-black uppercase tracking-[0.22em] text-[#e65c2f]">Territorio</p><h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-[#12233f] sm:text-5xl">Mantova e i comuni vicini.</h2></div><p className="max-w-2xl text-lg leading-8 text-slate-700">Siamo disponibili in città e nei principali comuni della provincia. Che il mezzo si trovi in centro, in una zona industriale, lungo una provinciale o davanti a casa, la posizione precisa ci permette di organizzare un intervento più ordinato.</p></div><div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{zones.map((zone) => <Link key={zone.slug} href={`/zone/${zone.slug}/`} className="flex items-center justify-between border-b border-slate-200 py-4 text-sm font-extrabold text-[#12233f] transition hover:border-[#e65c2f] hover:text-[#e65c2f]"><span>{zone.name}</span><span aria-hidden="true">↗</span></Link>)}</div></Container></section>
 }
@@ -155,5 +183,5 @@ function JsonLd() {
 }
 
 export default function Home() {
-  return <div className="min-h-screen overflow-hidden bg-white text-slate-900"><JsonLd /><Header /><main><Hero /><Intro /><Trust /><Services /><Process /><Zones /><Faq /><Cta /></main><Footer /></div>
+  return <div className="min-h-screen overflow-hidden bg-white text-slate-900"><JsonLd /><Header /><main><Hero /><Intro /><Trust /><Services /><Process /><FieldSupport /><Zones /><Faq /><Cta /></main><Footer /></div>
 }
