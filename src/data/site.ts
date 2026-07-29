@@ -1,10 +1,10 @@
-export const site = {
+﻿export const site = {
   domain: 'carroattrezzimantova.it',
   name: 'Carroattrezzi Mantova',
   city: 'Mantova',
-  phone: '0376 199 1615',
-  tel: '+3903761991615',
-  whatsapp: '3903761991615',
+  phone: '0444 152 0807',
+  tel: '+3904441520807',
+  whatsapp: '3904441520807',
   email: 'assistenza@carroattrezzimantova.it',
   address: 'Circonvallazione Sud, 8/G, 46100 Mantova MN',
   title: 'Carroattrezzi a Mantova 24H',
@@ -44,7 +44,7 @@ export const services = [
   {
     slug: 'trasporto-veicoli',
     title: 'Trasporto veicoli',
-    text: 'Il trasporto veicoli a Mantova non riguarda solo le emergenze. È utile anche per auto acquistate, vetture non revisionate, mezzi da consegnare a un’officina o veicoli che non devono circolare su strada.',
+    text: 'Il trasporto veicoli a Mantova non riguarda solo le emergenze. Ãˆ utile anche per auto acquistate, vetture non revisionate, mezzi da consegnare a un’officina o veicoli che non devono circolare su strada.',
     detail:
       'Programmiamo il trasferimento con orari, percorso e destinazione definiti. Il servizio è pensato per privati, aziende, concessionari e professionisti che cercano una soluzione chiara, puntuale e curata.',
   },
@@ -88,7 +88,7 @@ export const services = [
     title: 'Trasporto auto fuori provincia',
     text: 'Il trasporto auto fuori provincia da Mantova è pensato per trasferire vetture verso officine specializzate, concessionari, abitazioni private o altre destinazioni concordate.',
     detail:
-      'Organizziamo tempi, tragitto e consegna con precisione, soprattutto quando il veicolo non può circolare oppure deve arrivare in condizioni ordinate. È una soluzione utile per privati e aziende che vogliono evitare perdite di tempo.',
+      'Organizziamo tempi, tragitto e consegna con precisione, soprattutto quando il veicolo non può circolare oppure deve arrivare in condizioni ordinate. Ãˆ una soluzione utile per privati e aziende che vogliono evitare perdite di tempo.',
   },
   {
     slug: 'assistenza-veicoli-bloccati',
@@ -150,3 +150,4 @@ export const faqs = [
       'Valutiamo accessi, rampe, altezza e spazio di manovra. Quando serve, chiediamo indicazioni o foto per preparare l’intervento nel modo più adatto.',
   },
 ]
+
