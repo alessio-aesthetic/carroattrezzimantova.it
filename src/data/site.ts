@@ -6,7 +6,6 @@
   tel: '+3904441520807',
   whatsapp: '3904441520807',
   email: 'assistenza@carroattrezzimantova.it',
-  address: 'Circonvallazione Sud, 8/G, 46100 Mantova MN',
   title: 'Carroattrezzi a Mantova 24H',
   description:
     'Carroattrezzi a Mantova per soccorso stradale, traino auto, moto e furgoni. Intervento rapido, prezzi chiari e assistenza 24 ore.',
