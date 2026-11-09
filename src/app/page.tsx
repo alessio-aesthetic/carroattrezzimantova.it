@@ -455,7 +455,7 @@ function Footer() {
           <div>
             <h3 className="font-semibold text-slate-950">Contatti</h3>
             <div className="mt-3 space-y-2 text-sm text-slate-600">
-              <p>{site.address}</p>
+              
               <p>
                 <Link href={`tel:${site.tel}`}>{site.phone}</Link>
               </p>
@@ -504,15 +504,7 @@ function JsonLd() {
       url: `https://${site.domain}`,
       telephone: site.tel,
       email: site.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Circonvallazione Sud, 8/G',
-        postalCode: '46100',
-        addressLocality: site.city,
-        addressRegion: 'MN',
-        addressCountry: 'IT',
-      },
-      areaServed: [site.city, ...zones.map((zone) => zone.name)],
+            areaServed: [site.city, ...zones.map((zone) => zone.name)],
       openingHours: 'Mo-Su 00:00-23:59',
     },
     ...services.map((service) => ({
